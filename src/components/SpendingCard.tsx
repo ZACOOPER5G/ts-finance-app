@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -6,9 +5,9 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import spendingData from '../data.json'
 
 ChartJS.register(
   CategoryScale,
@@ -16,7 +15,6 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
 );
 
 const options = {
@@ -34,12 +32,23 @@ const options = {
 
 const labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
+type DataMap = {
+    day: string;
+    amount: number
+}
+
+const dataMap = (data: DataMap[]) => {
+    data.map(item => {
+         console.log(item.amount)
+    })
+}
+console.log(dataMap(spendingData))
+
 const data = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
-      data: [10, 3, 4, 20, 12, 10, 9],
+      data: dataMap(spendingData),
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     },
   ],
