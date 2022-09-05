@@ -38,9 +38,11 @@ type DataMap = {
 }
 
 const dataMap = (data: DataMap[]) => {
+    let dataArr: number[] = []
     data.map(item => {
-         console.log(item.amount)
+         dataArr.push(item.amount)
     })
+    return dataArr;
 }
 console.log(dataMap(spendingData))
 
